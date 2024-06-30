@@ -14,16 +14,19 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class HttpLoadTest {
     private final String url;
-    private int numberOfRequests;
-    private int numberOfConcurrent;
+    private final int numberOfRequests;
+    private final int numberOfConcurrent;
 
     public HttpLoadTest() {
         this.url = "";
         this.numberOfRequests = 1;
+        this.numberOfConcurrent = 1;
     }
 
     public HttpLoadTest(String url) {
         this.url = url;
+        this.numberOfRequests = 1;
+        this.numberOfConcurrent = 1;
     }
 
     public HttpLoadTest(String url, int numberOfRequests, int numberOfConcurrent) {
