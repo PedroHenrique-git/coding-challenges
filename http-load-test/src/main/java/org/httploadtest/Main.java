@@ -2,8 +2,6 @@ package org.httploadtest;
 
 import org.httploadtest.lib.HttpLoadTest;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -43,6 +41,12 @@ public class Main {
                 String.format("\tFailed Requests (5XX)......................: %s \n", result.get("numberOfFailures")) +
                 String.format("\tRequests/second ......................: %s \n", result.get("requestsPerSecond"));
 
+        String outputRequestTime =
+                String.format("\tTotal Request Time (s) (Min, Max, Mean).....: %s, %s, %s \n", result.get("minTime"), result.get("maxTime"), result.get("meanTime")) +
+                String.format("\tTime to First Byte (s) (Min, Max, Mean).....: %s, %s, %s \n", result.get("minTTFB"), result.get("maxTTFB"), result.get("meanTTFB")) +
+                String.format("\tTime to Last Byte (s) (Min, Max, Mean)......: %s, %s, %s \n", result.get("minTTLB"), result.get("maxTTLB"), result.get("meanTTLB"));
+
         System.out.println(output);
+        System.out.println(outputRequestTime);
     }
 }
